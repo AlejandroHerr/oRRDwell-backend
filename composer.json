@@ -1,0 +1,26 @@
+{
+    "name": "root/server",
+    "description": "Backend for oRRDwell, offers a public api of the monitoring data collected by orwell",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AlejandroHerr",
+            "email": "alejandrohnc88@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "^2.0",
+        "gecko-packages/gecko-silex-config-service": "^2.0",
+        "symfony/yaml": "^3.2",
+        "lstrojny/functional-php": "^1.5",
+        "stack/builder": "^1.0",
+        "asm89/stack-cors": "^1.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "AlejandroHerr\\": "src/AlejandroHerr"
+        }
+    }
+}
