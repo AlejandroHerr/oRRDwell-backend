@@ -2,6 +2,7 @@
 
 namespace AlejandroHerr\RRD;
 
+use AlejandroHerr\RRD\Exception\RrdException;
 use AlejandroHerr\RRD\Parser\RrdResponseParser;
 
 /**
@@ -28,7 +29,9 @@ class RrdClient
 
     public function fetch(string $file, array $options = [])
     {
-        $rawResponse = rrd_fetch($file, $options);
+        if (false === $rawResponse = rrd_fetch($file, $options)) {
+            throw new RrdException('RRD file not found');
+        }
 
         return $this->parser->parseFetchResponse($rawResponse);
     }
