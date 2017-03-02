@@ -20,13 +20,36 @@ class RrdClient
         $this->parser = $parser;
     }
 
+    /**
+     * Fetches last update of one rrd file.
+     *
+     * @param string $file Path of the file
+     *
+     * @return RRDResponse
+     *
+     * @throws RRDException When the file soen't exist
+     */
     public function lastUpdate(string $file)
     {
+        if (false === $rawResponse = rrd_fetch($file, $options)) {
+            throw new RrdException('RRD file not found');
+        }
+
         $rawResponse = rrd_lastupdate($file);
 
         return $this->parser->parseLastUpdateResponse($file, $rawResponse);
     }
 
+    /**
+     * Fetches one rrd file.
+     *
+     * @param string $file    Path of the file
+     * @param array  $options Array of options for the rrd query
+     *
+     * @return RRDResponse
+     *
+     * @throws RRDException When the file soen't exist
+     */
     public function fetch(string $file, array $options = [])
     {
         if (false === $rawResponse = rrd_fetch($file, $options)) {
