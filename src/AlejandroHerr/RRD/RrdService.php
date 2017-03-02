@@ -46,7 +46,7 @@ class RrdService
         return new RrdResponse($this->client->fetch($file, $options));
     }
 
-    public function fetchGroup(string $module, array $options = [])
+    public function fetchModule(string $module, array $options = [])
     {
         if (false === $this->moduleIsActive($module)) {
             throw new RrdException(sprintf('Module %s is not active.', $module));
