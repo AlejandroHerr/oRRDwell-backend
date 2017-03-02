@@ -76,6 +76,11 @@ class RrdService
         return $response;
     }
 
+    public function getViews()
+    {
+        return $this->config['views'];
+    }
+
     protected function moduleIsActive($module)
     {
         return in_array($module, explode(',', $this->config['config']['modules']));

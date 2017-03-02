@@ -51,4 +51,9 @@ class ApiController
 
         return $response->toArray();
     }
+
+    public function getViewsAction()
+    {
+        return $this->rrd->getViews();
+    }
 }
