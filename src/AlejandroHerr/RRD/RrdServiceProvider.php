@@ -14,7 +14,7 @@ class RrdServiceProvider implements ServiceProviderInterface
         $app['rrd.service'] = function () use ($app) {
             $config = new ConfigLoader(
                 $app,
-                '/home/alejandro/Code/rrd',
+                '/home/alejandro/Code/oRRDwell',
                 '%key%.yaml',
                 null,
                 null
