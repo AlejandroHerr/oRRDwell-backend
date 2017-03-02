@@ -22,4 +22,9 @@ class RrdResponse extends ParameterBag
 
         return $this;
     }
+
+    public function toArray()
+    {
+        return $this->parameters;
+    }
 }
