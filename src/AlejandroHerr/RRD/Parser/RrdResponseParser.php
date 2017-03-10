@@ -29,17 +29,15 @@ class RrdResponseParser
         $data = $rawResponse['data'];
 
         $rawResponse['data'] = \Functional\map($data, function ($probe) {
-            return \Functional\map($probe, function ($value, $time) {
+            return array_values(\Functional\map($probe, function ($value, $time) {
                 if (is_nan($value)) {
                     return [$time];
                 }
 
                 return [$time, $value];
-            });
+            }));
         });
 
         return $rawResponse;
-
-        return new RrdResponse($rawResponse);
     }
 }
