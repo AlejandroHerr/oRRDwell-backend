@@ -19,7 +19,7 @@ class ApiControllerProvider implements ServiceProviderInterface, ControllerProvi
     {
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/views', 'api/getViews');
+        $controllers->get('/fetch/views', 'api/getViews');
         $controllers->get('/fetch/all', 'api/fetchAll');
         $controllers->get('/fetch/{module}/{probe}', 'api/fetch');
         $controllers->get('/fetch/{module}', 'api/fetchModule');
